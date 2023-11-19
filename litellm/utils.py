@@ -321,6 +321,7 @@ class ModelResponse(OpenAIObject):
         setattr(self, key, value)
 class EmbeddingResponse(OpenAIObject):
     def __init__(self, id=None, choices=None, created=None, model=None, usage=None, stream=False, response_ms=None, **params):
+        super(EmbeddingResponse, self).__init__(**params)
         self.object = "list"
         if response_ms:
             self._response_ms = response_ms
